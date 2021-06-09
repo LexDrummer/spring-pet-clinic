@@ -2,7 +2,6 @@ package ru.lexdrummer.springpetclinic.services.map;
 
 import org.springframework.stereotype.Service;
 import ru.lexdrummer.springpetclinic.model.Pet;
-import ru.lexdrummer.springpetclinic.services.CrudService;
 import ru.lexdrummer.springpetclinic.services.PetService;
 
 import java.util.Set;

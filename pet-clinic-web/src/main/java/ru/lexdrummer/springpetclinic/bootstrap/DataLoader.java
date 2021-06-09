@@ -6,8 +6,6 @@ import ru.lexdrummer.springpetclinic.model.Owner;
 import ru.lexdrummer.springpetclinic.model.Vet;
 import ru.lexdrummer.springpetclinic.services.OwnerService;
 import ru.lexdrummer.springpetclinic.services.VetService;
-import ru.lexdrummer.springpetclinic.services.map.OwnerServiceMap;
-import ru.lexdrummer.springpetclinic.services.map.VetServiceMap;
 
 @Component
 public class DataLoader implements CommandLineRunner {
