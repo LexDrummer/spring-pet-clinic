@@ -2,13 +2,12 @@ package ru.lexdrummer.springpetclinic.services.map;
 
 import org.springframework.stereotype.Service;
 import ru.lexdrummer.springpetclinic.model.Vet;
-import ru.lexdrummer.springpetclinic.services.CrudService;
 import ru.lexdrummer.springpetclinic.services.VetService;
 
 import java.util.Set;
 
 @Service
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
