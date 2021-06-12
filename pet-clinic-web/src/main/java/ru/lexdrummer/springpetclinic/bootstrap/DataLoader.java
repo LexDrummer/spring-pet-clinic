@@ -3,11 +3,14 @@ package ru.lexdrummer.springpetclinic.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import ru.lexdrummer.springpetclinic.model.Owner;
+import ru.lexdrummer.springpetclinic.model.Pet;
 import ru.lexdrummer.springpetclinic.model.PetType;
 import ru.lexdrummer.springpetclinic.model.Vet;
 import ru.lexdrummer.springpetclinic.services.OwnerService;
 import ru.lexdrummer.springpetclinic.services.PetTypeService;
 import ru.lexdrummer.springpetclinic.services.VetService;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -30,18 +33,36 @@ public class DataLoader implements CommandLineRunner {
         PetType savedDogPetType = petTypeService.save(dog);
 
         PetType cat = new PetType();
-        dog.setName("Meeau");
+        cat.setName("Meeau");
         PetType savedCatPetType = petTypeService.save(cat);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
+        owner1.setAddress("123 Bleeker st.");
+        owner1.setCity("London");
+        owner1.setPhone("+4489432083");
+        Pet mikesPet = new Pet();
+        mikesPet.setPetType(savedDogPetType);
+        mikesPet.setOwner(owner1);
+        mikesPet.setBirthDate(LocalDate.ofYearDay(2012, 100));
+        mikesPet.setName("Rex");
+        owner1.getPets().add(mikesPet);
 
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Fiona");
         owner2.setLastName("Gallagher");
+        owner2.setAddress("45 Baker st.");
+        owner2.setCity("London");
+        owner2.setPhone("+449083495803");
+        Pet fionasCat = new Pet();
+        fionasCat.setOwner(owner2);
+        fionasCat.setName("Fluffy");
+        fionasCat.setPetType(savedCatPetType);
+        fionasCat.setBirthDate(LocalDate.ofYearDay(2015, 30));
+        owner2.getPets().add(fionasCat);
 
         ownerService.save(owner2);
         System.out.println("Loaded Owners....");
