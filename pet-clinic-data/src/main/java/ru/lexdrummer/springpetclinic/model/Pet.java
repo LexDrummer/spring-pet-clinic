@@ -23,6 +23,8 @@ public class Pet extends BaseEntity {
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
+    @OneToMany
+    @Column(name = "visits")
     private Set<Visit> visits = new HashSet<>();
 
     public String getName() {
